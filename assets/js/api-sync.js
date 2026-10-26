@@ -1,4 +1,6 @@
-const API_BASE = new URL('api/api.php', window.location.href).href;
+const API_BASE = window.location.protocol === 'file:'
+  ? 'http://localhost/styne-project/api/api.php'
+  : new URL('/styne-project/api/api.php', window.location.origin).href;
 
 let CSRF_TOKEN = null;
 
