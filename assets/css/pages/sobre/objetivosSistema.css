@@ -1,0 +1,5 @@
+.objetivos-list { display: flex; flex-direction: column; gap: var(--gap-sm); }
+.objetivo-item { display: flex; align-items: flex-start; gap: var(--gap-sm); padding: var(--gap-sm) var(--gap-md); background: var(--surface); border: var(--border); border-radius: var(--r-md); box-shadow: var(--sh-sm); }
+.objetivo-item .oi-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+.objetivo-item .oi-text { font-size: 13px; color: var(--tx-soft); line-height: 1.6; }
+.objetivo-item .oi-title { font-size: 14px; font-weight: 800; color: var(--tx); display: block; margin-bottom: 2px; }

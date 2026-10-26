@@ -1,0 +1,10 @@
+.requisitos-table { width: 100%; border-collapse: separate; border-spacing: 0; border: var(--border); border-radius: var(--r-md); overflow: hidden; box-shadow: var(--sh-sm); margin-top: var(--gap-sm); background: var(--surface); }
+.requisitos-table thead { background: var(--navy); }
+.requisitos-table tbody { background: var(--surface); }
+.requisitos-table th { background: var(--navy); color: #fff; padding: 10px 14px; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; text-align: left; }
+.requisitos-table td { background: var(--surface); padding: 10px 14px; font-size: 13px; color: var(--tx-soft); border-top: 1px solid rgba(26,26,46,.08); }
+.requisitos-table tr { background: var(--surface); }
+.requisitos-table tr:hover td { background: var(--surface2); }
+.req-tag { display: inline-flex; padding: 2px 8px; border-radius: 99px; font-size: 10px; font-weight: 700; }
+.req-tag.func { background: var(--green-lt); color: var(--green); }
+.req-tag.nfunc { background: var(--amber-lt); color: var(--amber); }

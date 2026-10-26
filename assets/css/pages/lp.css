@@ -1,0 +1,36 @@
+.lp-hero {
+  min-height: calc(100vh - 120px);
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; text-align: center; gap: 22px; padding: 48px 24px;
+}
+.lp-tag {
+  display: inline-flex; align-items: center; gap: 7px; padding: 6px 16px;
+  border: var(--border); border-radius: 99px; font-size: 12px; font-weight: 800;
+  box-shadow: var(--sh-sm); background: var(--red-lt); color: var(--red);
+}
+.lp-h1 { font-size: clamp(36px,6vw,70px); font-weight: 900; line-height: 1.05; letter-spacing: -2px; color: var(--navy); }
+.lp-h1 em { font-style: normal; color: var(--red); }
+.lp-sub { font-size: 18px; color: var(--tx-soft); max-width: 520px; line-height: 1.7; }
+
+.lp-example {
+  max-width: 520px; text-align: left; background: var(--surface); border: var(--border);
+  border-radius: var(--r-lg); box-shadow: var(--sh-md); padding: 16px 20px;
+}
+.lp-example-title { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--main); margin-bottom: 6px; }
+.lp-example p { font-size: 14px; color: var(--tx-soft); line-height: 1.65; }
+
+.lp-emblem {
+  height: 100px; width: auto; display: block;
+  filter: drop-shadow(0 10px 16px rgba(233,69,96,.28));
+  animation: emblemFloat 6s ease-in-out infinite;
+}
+@keyframes emblemFloat {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-7px) rotate(1deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lp-emblem { animation: none; }
+}
+@media (max-width: 600px) {
+  .lp-emblem { height: 80px; }
+}

@@ -1,0 +1,50 @@
+.lp-card {
+  background: var(--surface); border: var(--border); border-radius: var(--r-lg);
+  box-shadow: var(--sh-md); padding: 26px; text-align: left;
+}
+.lp-card .lc-title { font-size: 17px; font-weight: 800; margin-bottom: 7px; color: var(--navy); }
+.lp-card .lc-desc { font-size: 14px; color: var(--tx-soft); line-height: 1.65; }
+.lp-card:nth-child(6n+1) { background: var(--yellow-lt); }
+.lp-card:nth-child(6n+2) { background: var(--blue-lt); }
+.lp-card:nth-child(6n+3) { background: var(--green-lt); }
+.lp-card:nth-child(6n+4) { background: var(--red-lt); }
+.lp-card:nth-child(6n+5) { background: var(--purple-lt); }
+.lp-card:nth-child(6n+6) { background: var(--amber-lt); }
+
+.lp-carousel {
+  position: relative; display: flex; align-items: center; gap: 12px;
+  max-width: 640px; width: 100%; min-width: 0; margin-top: 8px;
+}
+.lp-car-viewport { flex: 1; min-width: 0; overflow: hidden; border-radius: var(--r-lg); }
+.lp-car-track {
+  display: flex; transition: transform .45s cubic-bezier(.22,.9,.32,1);
+}
+.lp-car-track .lp-card { flex: 0 0 100%; min-height: 168px; }
+.lp-car-btn {
+  flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%;
+  border: var(--border); background: var(--surface); color: var(--navy);
+  font-size: 22px; font-weight: 900; line-height: 1; cursor: pointer;
+  box-shadow: var(--sh-sm); display: flex; align-items: center; justify-content: center;
+  transition: transform .12s, box-shadow .12s, background .12s;
+}
+.lp-car-btn:hover { background: var(--yellow); transform: translate(-1px,-1px); box-shadow: var(--sh-md); }
+.lp-car-btn:active { transform: translate(2px,2px); box-shadow: none; }
+.lp-car-btn:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+
+.lp-car-dots {
+  position: absolute; left: 50%; bottom: -26px; transform: translateX(-50%);
+  display: flex; gap: 8px;
+}
+.lp-car-dot {
+  width: 11px; height: 11px; border-radius: 50%; border: 2px solid var(--ink);
+  background: var(--surface); cursor: pointer; padding: 0; transition: all .15s;
+}
+.lp-car-dot:hover { background: var(--yellow); }
+.lp-car-dot.active { background: var(--red); transform: scale(1.15); }
+.lp-car-dot:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+@media (max-width: 640px) {
+  .lp-carousel { max-width: 100%; gap: 8px; }
+  .lp-car-btn { width: 36px; height: 36px; font-size: 18px; }
+  .lp-car-track .lp-card { padding: 20px; min-height: 190px; }
+}

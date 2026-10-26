@@ -1,0 +1,7 @@
+.logo:hover { opacity: .85; transition: opacity .15s; }
+
+@media (max-width: 600px) {
+  #topbar { padding: 0 14px; gap: 8px; }
+  .logo { font-size: 18px; letter-spacing: 0; }
+  .nav-link { padding: 5px 10px; font-size: 12px; }
+}

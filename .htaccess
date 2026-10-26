@@ -1,0 +1,27 @@
+# Configuração do Apache para o Styne.
+# Escrita para não quebrar ambiente local/XAMPP: o redirecionamento para
+# HTTPS só ativa quando a variável de ambiente STYNE_FORCE_HTTPS=1 estiver
+# definida no servidor de produção (defina isso no vhost, não aqui).
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{ENV:STYNE_FORCE_HTTPS} =1
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  # HSTS só é enviado quando a conexão já é HTTPS (evita quebrar HTTP local)
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+</IfModule>
+
+# Nunca liste o conteúdo de pastas
+Options -Indexes
+
+# Bloqueia acesso direto a arquivos sensíveis, caso alguém os publique por engano
+<FilesMatch "\.(env|sql|md|log)$">
+  Require all denied
+</FilesMatch>

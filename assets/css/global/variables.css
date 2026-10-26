@@ -1,0 +1,44 @@
+:root {
+  --red:        #e94560;
+  --red-dark:   #c73652;
+  --red-lt:     #fde8ec;
+  --navy:       #1a1a2e;
+  --navy2:      #16213e;
+  --navy3:      #0f3460;
+  --bg:         #eef1fb;      
+  --surface:    #ffffff;
+  --surface2:   #fff3e8;
+  --ink:        #000000;      
+  --sh-sm:      3px 3px 0 var(--ink);
+  --sh-md:      5px 5px 0 var(--ink);
+  --sh-lg:      8px 8px 0 var(--ink);
+  --border:     3px solid var(--ink);
+  --tx:         #111118;
+  --tx-soft:    #45455a;
+  --tx-muted:   #82829a;
+  --green:      #17a673;
+  --green-lt:   #d9f7ea;
+  --amber:      #d9820a;
+  --amber-lt:   #fff2d6;
+  --on-amber:   #ffffff;
+  
+  --main:       #3d5af1;      
+  --main-lt:    #e3e8ff;
+  --on-main:    #ffffff;      
+  --yellow:     #ffd60a;
+  --yellow-lt:  #fff6cf;
+  --blue:       #2b7cd3;
+  --blue-lt:    #e7f1fc;
+  --purple:     #8b5cf6;
+  --purple-lt:  #f1ecfe;
+  --nc0: #ffb347; --nc1: #87ceeb; --nc2: #98d4a3;
+  --nc3: #f7a7c0; --nc4: #c5aef5; --nc5: #f5e472;
+  --nc6: #aed9f5; --nc7: #f5b8a0;
+  
+  --r-sm: 4px; --r-md: 7px; --r-lg: 10px; --r-xl: 14px;
+  --font: 'Nunito', 'Varela Round', sans-serif;
+  --font-display: 'Nunito', 'Varela Round', sans-serif;
+  --gap-xs:4px; --gap-sm:8px; --gap-md:16px; --gap-lg:24px; --gap-xl:36px;
+  --transition-fast: .12s cubic-bezier(.2,.8,.3,1);
+  --scheme: light;
+}

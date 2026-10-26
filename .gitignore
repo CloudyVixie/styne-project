@@ -1,0 +1,37 @@
+# Ambiente e segredos — nunca versionar
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+*.p12
+secrets/
+credentials/
+config/local.php
+config.local.php
+
+# Logs
+*.log
+logs/
+error_log
+
+# Dependências (caso algum dia entrem no projeto)
+node_modules/
+vendor/
+
+# Cache e temporários
+.cache/
+*.tmp
+*.bak
+*.swp
+
+# Sistema operacional / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Uploads/dados de usuário gerados em runtime, se existirem
+/uploads/
+/storage/

@@ -1,0 +1,57 @@
+@import url(./cards.css);
+@import url(./containers.css);
+@import url(./imagens.css);
+@import url(./justificativaSistema.css);
+@import url(./objetivos.css);
+@import url(./objetivosSistema.css);
+@import url(./Sobre.css);
+
+.sobre-wrap { max-width: 760px; margin: 0 auto; padding: 16px 0; }
+.sobre-section { margin-bottom: 36px; }
+.sobre-section h2 { font-size: 22px; font-weight: 900; letter-spacing: -.5px; margin-bottom: 10px; color: var(--navy); }
+.sobre-section p, .sobre-section li { font-size: 14px; color: var(--tx-soft); line-height: 1.8; margin-bottom: 8px; }
+.sobre-section ul { padding-left: 18px; list-style: disc; }
+.sobre-section .doc-block { background: var(--surface); border: var(--border); border-radius: var(--r-md); box-shadow: var(--sh-sm); padding: 14px 18px; margin-top: 10px; }
+.doc-cmd { font-size: 12px; font-family: monospace; color: var(--red); background: var(--red-lt); padding: 2px 8px; border-radius: 4px; border: 1px solid var(--red); }
+
+.sobre-section h2 { display:inline-block; padding:2px 10px; background:var(--yellow); border:var(--border); border-radius:var(--r-sm); box-shadow:var(--sh-sm); }
+
+.step-list { display:flex; flex-direction:column; gap:10px; margin-top:10px; }
+.step-item { display:flex; gap:12px; align-items:flex-start; background:var(--surface); border:var(--border); border-radius:var(--r-md); box-shadow:var(--sh-sm); padding:12px 14px; transition:transform var(--transition-fast), box-shadow var(--transition-fast); }
+.step-item:hover { transform:translate(-2px,-2px); box-shadow:var(--sh-md); }
+.step-item > div { font-size:14px; color:var(--tx-soft); line-height:1.7; }
+.step-n { flex-shrink:0; width:26px; height:26px; border:2px solid var(--ink); border-radius:var(--r-sm); background:var(--main); color:var(--on-main); font-weight:900; font-size:13px; display:flex; align-items:center; justify-content:center; box-shadow:2px 2px 0 var(--ink); }
+
+.feat-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; margin-top:10px; }
+.feat-card { background:var(--surface); border:var(--border); border-radius:var(--r-lg); box-shadow:var(--sh-md); padding:16px 18px; transition:transform var(--transition-fast), box-shadow var(--transition-fast); }
+.feat-card:hover { transform:translate(-2px,-2px); box-shadow:var(--sh-lg); }
+.feat-card h3 { font-size:14px; font-weight:900; text-transform:uppercase; letter-spacing:.04em; margin-bottom:8px; color:var(--navy); }
+.feat-card ul { padding-left:16px; list-style:disc; }
+.feat-card li { font-size:12.5px; margin-bottom:5px; }
+.feat-card-amber { background:var(--amber-lt); }
+.feat-card-blue { background:var(--blue-lt); }
+.feat-card-purple { background:var(--purple-lt); }
+
+.model-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin-top:6px; }
+.model-card { background:var(--surface); border:var(--border); border-radius:var(--r-lg); box-shadow:var(--sh-sm); padding:14px 16px; }
+.model-card h4 { font-size:13px; font-weight:900; margin-bottom:8px; color:var(--main); }
+.type-fields { font-family:'Courier New',monospace; font-size:12.5px; display:flex; flex-direction:column; gap:3px; background:var(--bg); border:2px solid var(--ink); border-radius:var(--r-sm); padding:10px 12px; }
+.tf-type { color:var(--on-main); background:var(--main); font-weight:800; padding:0 6px; border-radius:3px; margin-right:7px; }
+
+.sobre-toc { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin: 4px 0 30px; }
+.sobre-toc a {
+  padding: 7px 15px; font-size: 12.5px; font-weight: 800; border: var(--border);
+  border-radius: 99px; background: var(--surface); box-shadow: 2px 2px 0 var(--ink); color: var(--tx);
+  transition: all .12s; cursor: pointer;
+}
+.sobre-toc a:hover { background: var(--main); color: var(--on-main); transform: translate(-1px,-1px); box-shadow: 3px 3px 0 var(--ink); }
+html { scroll-padding-top: 74px; }
+
+.tree-block {
+  font-family: 'Courier New', monospace; font-size: 12.5px; line-height: 1.9;
+  background: var(--bg); border: 2px solid var(--ink); border-radius: var(--r-md);
+  padding: 16px 18px; overflow-x: auto; white-space: pre;
+}
+.tf-dir { color: var(--main); font-weight: 800; }
+.tf-file { color: var(--red); font-weight: 800; }
+.tf-note { color: var(--tx-muted); font-style: italic; white-space: normal; }

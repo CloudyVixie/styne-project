@@ -1,0 +1,3 @@
+.justificativa-section { background: var(--surface); border: var(--border); border-radius: var(--r-xl); box-shadow: var(--sh-lg); padding: var(--gap-xl); margin: var(--gap-lg) 0; }
+.justificativa-section h3 { font-size: 18px; font-weight: 900; color: var(--navy); margin-bottom: var(--gap-md); }
+.justificativa-section blockquote { border-left: 4px solid var(--red); padding-left: var(--gap-md); color: var(--tx-soft); font-style: italic; font-size: 15px; line-height: 1.8; }
