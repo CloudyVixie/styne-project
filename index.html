@@ -4,6 +4,12 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <script>
+    // A API PHP precisa ser acessada pelo Apache, nunca diretamente por file://.
+    if (window.location.protocol === 'file:') {
+      window.location.replace('http://localhost/styne-project/');
+    }
+  </script>
   <meta name="description" content="Styne: Divida qualquer objetivo em passos diários. Cronogramas, metas financeiras e checklists organizados em trilhas."/>
   <meta name="author" content="Styne Team"/>
   <title>Styne: Divida seu tempo</title>
