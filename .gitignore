@@ -20,6 +20,9 @@ error_log
 node_modules/
 vendor/
 
+# anotações
+docs/
+
 # Cache e temporários
 .cache/
 *.tmp
