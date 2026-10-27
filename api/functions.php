@@ -14,23 +14,13 @@ function styne_valid_email(mixed $email): ?string {
     return $email !== false ? $email : null;
 }
 
-/**
- * Valida um ID vindo do cliente (trilha, pasta ou tarefa): só aceita o
- * formato realmente gerado pelo frontend (uid() em assets/js/utils.js),
- * alfanumérico simples. Qualquer coisa fora disso é rejeitada antes de
- * chegar perto de uma query — fecha a porta para IDs maliciosos (ex.:
- * tentativas de quebrar atributos HTML/JS no momento da renderização).
- */
+
 function styne_valid_id(mixed $v): ?string {
     $v = trim((string)($v ?? ''));
     return preg_match('/^[a-z0-9_-]{1,64}$/i', $v) ? $v : null;
 }
 
-/**
- * Token CSRF ligado à sessão do usuário. Gerado uma vez por sessão e
- * reaproveitado enquanto ela durar. O frontend recebe esse valor na
- * ação 'me' e o reenvia em toda operação que modifica dados.
- */
+
 function styne_csrf_token(): string {
     if (empty($_SESSION['csrf'])) {
         $_SESSION['csrf'] = bin2hex(random_bytes(32));
@@ -38,12 +28,7 @@ function styne_csrf_token(): string {
     return $_SESSION['csrf'];
 }
 
-/**
- * Exige um token CSRF válido para operações que modificam dados através
- * de sessão/cookie. Sem isso, um site malicioso não pode forçar o
- * navegador do usuário a executar ações autenticadas sem que o token
- * (que só o próprio frontend do Styne recebeu) esteja presente.
- */
+
 function styne_require_csrf(array $input): void {
     $sent = (string)($input['csrf'] ?? '');
     $expected = $_SESSION['csrf'] ?? '';
@@ -58,11 +43,7 @@ function styne_uid(): string {
     return bin2hex(random_bytes(8));
 }
 
-/**
- * Log de auditoria para eventos de segurança (login, logout, troca de
- * senha, ações administrativas). Nunca grava senha, hash, cookie de
- * sessão ou token — só o necessário para investigar um incidente depois.
- */
+
 function styne_audit_log(string $event, ?string $userId = null, array $context = []): void {
     unset($context['pass'], $context['password'], $context['current_password'], $context['new_password'], $context['csrf'], $context['senha']);
     $ip = $_SERVER['REMOTE_ADDR'] ?? 'desconhecido';
@@ -114,11 +95,11 @@ function styne_user_create(string $name, string $email, string $plainPassword): 
     $id = styne_uid();
     $hash = password_hash($plainPassword, PASSWORD_DEFAULT);
 
-    // Se ainda não existe nenhum usuário cadastrado, a primeira conta criada
-    // vira administradora automaticamente. Isso evita depender de acesso a
-    // linha de comando (php database/seed_admin.php) só para conseguir o
-    // primeiro acesso administrativo — sem isso, não havia nenhuma forma de
-    // criar um admin em instalações sem terminal (ex.: XAMPP via painel).
+    
+    
+    
+    
+    
     $isFirstUser = (int)$pdo->query('SELECT COUNT(*) AS c FROM users')->fetch()['c'] === 0;
 
     $stmt = $pdo->prepare(
@@ -165,14 +146,7 @@ function styne_admin_search_users(string $q): array {
     return $stmt->fetchAll();
 }
 
-/**
- * Atualiza nome, e-mail e (opcionalmente) a senha de um usuário — usada
- * pelo Painel Administrativo. Identifica o usuário pelo ID (nunca por
- * nome/e-mail, que podem mudar), evitando confundir a operação com uma
- * busca. Confere se o novo e-mail já não pertence a OUTRA conta antes de
- * gravar. A senha, quando informada, é sempre processada com
- * password_hash() — nunca gravada em texto puro.
- */
+
 function styne_admin_update_user(string $userId, string $name, string $email, ?string $newPassword): array {
     $pdo = styne_db();
 
@@ -200,13 +174,7 @@ function styne_admin_update_user(string $userId, string $name, string $email, ?s
     return ['ok' => true, 'id_usuario' => $userId, 'nome_usuario' => $name, 'email_usuario' => $email];
 }
 
-/**
- * Atualiza nome e/ou e-mail do PRÓPRIO usuário autenticado (self-service,
- * diferente da versão administrativa acima). Sempre confere se o novo
- * e-mail já não pertence a outra conta antes de gravar — nunca permite
- * duas contas com o mesmo e-mail nem deixa um usuário "roubar" a conta de
- * outro só trocando de e-mail.
- */
+
 function styne_update_own_profile(string $userId, string $name, string $email): array {
     $pdo = styne_db();
     $stmt = $pdo->prepare('SELECT id FROM users WHERE email_usuario = ? AND id != ? LIMIT 1');

@@ -141,9 +141,9 @@ async function changePassword(){
   showToast('Senha trocada!', 'success');
 }
 
-// Atualiza nome e/ou e-mail da própria conta. Valida no backend (formato do
-// e-mail e unicidade), grava no banco vinculado ao usuário da sessão, e
-// sincroniza sessão + tela na hora — sem precisar recarregar a página.
+
+
+
 async function updateProfile(){
   const u=currentUser();
   if(!u){ showToast('Entra na tua conta pra editar teus dados', 'error'); return; }
@@ -166,7 +166,7 @@ async function updateProfile(){
     return;
   }
 
-  // Sincroniza sessão + toda a interface que usa o nome/e-mail na hora.
+  
   u.nome_usuario=res.nome_usuario;
   u.email_usuario=res.email_usuario;
   updateAuthUI();
@@ -263,8 +263,8 @@ function clearAdminUserForm(){
   if(uPassEl) uPassEl.value='';
 }
 
-// Carrega um usuário (por ID, nome e e-mail já conhecidos) no formulário
-// de atualização — usado tanto pela busca quanto pelas solicitações de suporte.
+
+
 function adminUseUser(id,name,email){
   const idEl=document.getElementById('ad-user-id');
   const uNameEl=document.getElementById('ad-user-name');
@@ -278,10 +278,10 @@ function adminUseUser(id,name,email){
   showToast('Usuário carregado no formulário de atualização', 'info');
 }
 
-// Quando uma solicitação chegou sem login (o caso mais comum de "esqueci
-// minha senha", já que quem esqueceu a senha não está logado), não existe
-// um ID de usuário salvo junto da solicitação. Resolve o usuário atual
-// dono daquele e-mail, buscando no banco, e só então carrega o formulário.
+
+
+
+
 async function adminResolveRequestUser(email){
   if(!isCurrentUserAdmin()) return;
   const res=await apiPost('admin_search_users',{q:email});
@@ -355,9 +355,9 @@ async function adminSetStatus(id,status){
   renderAdminPage();
 }
 
-// Atualiza nome, e-mail e (opcionalmente) senha do usuário identificado
-// pelo ID — nunca por busca. É preciso ter carregado um usuário antes
-// (pela busca ou por uma solicitação de suporte).
+
+
+
 async function adminUpdateUserData(){
   if(!isCurrentUserAdmin()){ showToast('Acesso restrito ao administrador', 'warning'); return; }
   const id=document.getElementById('ad-user-id')?.value.trim();

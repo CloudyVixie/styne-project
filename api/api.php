@@ -17,8 +17,8 @@ header('X-Content-Type-Options: nosniff');
 header('X-Frame-Options: DENY');
 header('Referrer-Policy: strict-origin-when-cross-origin');
 if ((($_SERVER['HTTPS'] ?? '') !== '') || (($_SERVER['SERVER_PORT'] ?? '') === '443')) {
-    // Só envia HSTS quando a conexão já está em HTTPS — nunca força HTTPS
-    // em ambiente local/XAMPP onde normalmente não há certificado configurado.
+    
+    
     header('Strict-Transport-Security: max-age=31536000; includeSubDomains');
 }
 
@@ -78,7 +78,7 @@ try {
                 styne_audit_log('login_failed', null, ['email' => $email]);
                 styne_respond(['ok' => false, 'error' => 'E-mail ou senha inválidos.'], 401);
             }
-            session_regenerate_id(true); // evita fixação de sessão a cada novo login
+            session_regenerate_id(true); 
             $_SESSION['uid'] = $u['id'];
             styne_audit_log('login_success', $u['id']);
             styne_respond(['ok' => true, 'csrf' => styne_csrf_token(), 'id_usuario' => $u['id'], 'nome_usuario' => $u['nome_usuario'], 'admin' => (bool)$u['admin']]);
@@ -181,8 +181,8 @@ try {
             styne_respond(['ok' => true, 'users' => styne_admin_search_users($q)]);
         }
 
-        // Atualiza nome, e-mail e (opcionalmente) a senha de um usuário —
-        // sempre identificado pelo ID, nunca por uma busca de texto.
+        
+        
         case 'admin_update_user': {
             styne_require_admin();
             styne_require_csrf($input);
