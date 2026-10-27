@@ -21,7 +21,7 @@ node_modules/
 vendor/
 
 # anotações
-docs/
+docs/anotacoes
 
 # Cache e temporários
 .cache/
